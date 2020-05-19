@@ -1,16 +1,23 @@
 <template>
   <v-col md="4">
     <v-card class="mx-auto mb-12">
-      <v-img src="https://cdn.vuetifyjs.com/images/cards/sunshine.jpg" height="200px"></v-img>
+      <v-img :src="host.image" height="200px"></v-img>
 
       <v-card-title>{{ host.name }}</v-card-title>
 
       <v-card-subtitle>{{ host.address }} (1.4km away)</v-card-subtitle>
 
       <v-card-actions>
-        <v-btn color="primary" text>Get Direction</v-btn>
-
-        <v-btn color="primary" text>Contact</v-btn>
+        <a
+          style="text-decoration: none;"
+          href="https://www.google.com/maps/search/?api=1&query=Saradise%20Kuching%2C%20Jalan%20Stutong%2C%20Kuching%2C%20Sarawak"
+          target="_blank"
+        >
+          <v-btn color="indigo" id="direction-btn" text>Get Direction</v-btn>
+        </a>
+        <a style="text-decoration: none;" href="https://wa.me/60123456789" target="_blank">
+          <v-btn color="indigo" class="pl-1" text>Contact</v-btn>
+        </a>
 
         <v-spacer></v-spacer>
 
@@ -24,16 +31,16 @@
           <v-list-item two-line>
             <v-list-item-content>
               <v-list-item-title>Eggs</v-list-item-title>
-              <v-list-item-subtitle>5 days ago</v-list-item-subtitle>
-              <v-list-item-subtitle>Special Note: Only organice eggs.</v-list-item-subtitle>
+              <v-list-item-subtitle>3 days ago</v-list-item-subtitle>
+              <v-list-item-subtitle>Special Note: 2 dozens eggs needed.</v-list-item-subtitle>
             </v-list-item-content>
           </v-list-item>
 
           <v-list-item three-line>
             <v-list-item-content>
-              <v-list-item-title>Rice</v-list-item-title>
+              <v-list-item-title>Brown Rice</v-list-item-title>
               <v-list-item-subtitle>5 days ago</v-list-item-subtitle>
-              <v-list-item-subtitle>Special Note: Only brown rice.</v-list-item-subtitle>
+              <v-list-item-subtitle>Special Note: Small packet is enough.</v-list-item-subtitle>
             </v-list-item-content>
           </v-list-item>
         </div>
@@ -42,7 +49,11 @@
   </v-col>
 </template>
 
-<style scoped></style>
+<style scoped>
+#direction-btn {
+  padding-left: 4%;
+}
+</style>
 
 <script>
 export default {
