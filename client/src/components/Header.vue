@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar app color="white" height="50" dense flat>
+  <v-app-bar app color="white" height="60" dense flat>
     <!-- <v-avatar class="mr-3" color="grey lighten-5" size="70">
         <v-img
           contain
@@ -8,12 +8,12 @@
         ></v-img>
     </v-avatar>-->
 
-    <v-toolbar-title class="font-weight-black headline">WecareMY</v-toolbar-title>
+    <v-toolbar-title class="font-weight-black headline"><router-link style="color: #3f51b5; text-decoration: none;" :to="{name: 'Index'}">WecareMY</router-link></v-toolbar-title>
   </v-app-bar>
 </template>
 
 <style scoped>
-</style>
+</style>  
 
 <script>
 export default {};

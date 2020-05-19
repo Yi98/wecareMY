@@ -26,22 +26,31 @@
         </v-row>
       </section>
 
-      <v-form v-model="valid" id="index-form">
+      <v-form id="index-form">
         <v-container>
           <h1 class="pt-4" id="hero2-text">Find orphanages / old folks' homes around you</h1>
           <v-row>
             <v-col cols="12" md="5" class="text-center hero-select">
-              <v-select :items="states" label="State" required></v-select>
+              <v-select
+                :items="states"
+                label="State"
+                v-model="selectedState"
+                required
+              ></v-select>
             </v-col>
 
             <v-col cols="12" md="5" class="text-center">
-              <v-select :items="cities" label="City" required></v-select>
+              <v-select :items="cities" label="City" v-model="selectedCity" required></v-select>
             </v-col>
 
             <v-col cols="12" md="2" class="text-center">
-              <router-link :to="{name: 'Search'}">
-                <v-btn x-large elevation="0" color="primary" id="search-btn">Search</v-btn>
-              </router-link>
+              <v-btn
+                x-large
+                elevation="0"
+                color="indigo"
+                id="search-btn"
+                @click="onSearchLocation()"
+              >Search</v-btn>
             </v-col>
           </v-row>
         </v-container>
@@ -58,7 +67,7 @@
           <v-responsive
             class="mx-auto title font-weight-light mb-11"
             max-width="720"
-          >Establish on year 2020, WecareMY is a Non-Governmental Organisation(NGO) in Malaysia that aims to connect people who are in needs to people who are willing to help. We provide a platform to connect both parties. We care about you!</v-responsive>
+          >Establish on year 2020, WecareMY is a Non-Profit Organisation(NPO) in Malaysia that aims to connect people who are in needs to people who are willing to help. We provide a platform to connect both parties. We care about you!</v-responsive>
         </v-container>
 
         <div class="about-container-btn"></div>
@@ -75,7 +84,7 @@
               <v-card class="py-12 px-4 step-cards" color="white" flat>
                 <v-theme-provider dark>
                   <div>
-                    <v-avatar class="step-avatar" color="primary" size="65">
+                    <v-avatar class="step-avatar" color="indigo" size="65">
                       <h1 style="color: white;">{{i + 1}}</h1>
                     </v-avatar>
                   </div>
@@ -152,7 +161,7 @@
               </v-col>
 
               <v-col cols="12" class="py-0">
-                <v-text-field flat label="Phone Number*" solo></v-text-field>
+                <v-text-field flat label="Email address*" solo></v-text-field>
               </v-col>
 
               <v-col cols="12" class="py-0">
@@ -164,7 +173,7 @@
               </v-col>
 
               <v-col class="mx-auto" cols="12">
-                <v-btn id="submit-btn" x-large color="primary">Submit</v-btn>
+                <v-btn id="submit-btn" x-large color="indigo" style="color: #fff;">Submit</v-btn>
               </v-col>
             </v-row>
           </v-theme-provider>
@@ -174,7 +183,7 @@
       </v-sheet>
     </v-content>
 
-    <v-footer id="footer" class="justify-center grey lighten-4" height="70">
+    <v-footer id="footer" class="justify-center grey lighten-4" height="60">
       <div class="title font-weight-light text--lighten-1 text-center">
         <span
           style="font-size: 1.1rem;"
@@ -205,6 +214,8 @@
 
 #search-btn {
   width: 100%;
+  color: #fff;
+  text-decoration: none;
 }
 
 .about-container {
@@ -340,7 +351,10 @@ export default {
   name: "Index",
   data() {
     return {
+      selectedState: null,
+      selectedCity: null,
       states: [
+        "All states",
         "Johor",
         "Kedah",
         "Kelantan",
@@ -355,7 +369,23 @@ export default {
         "Sabah",
         "Sarawak"
       ],
-      cities: ["All"],
+      cities: [
+        "All cities",
+        "Ayer Baloi",
+        "Ayer Hitam",
+        "Bandar Penawar",
+        "Bandar Tenggara",
+        "Batu Anam",
+        "Batu Pahat",
+        "Bekok",
+        "Benut",
+        "Bukit Gambir",
+        "Bukit Pasir",
+        "Chaah",
+        "Endau",
+        "Gelang Patah",
+        "Gerisek"
+      ],
       articles: [
         {
           src:
@@ -397,11 +427,19 @@ export default {
         }
       ],
       stats: [
-        ["0", "Helping hands"],
-        ["0", "Organizations helped"],
-        ["0", "Request fulfilled"]
+        ["34", "Helping hands"],
+        ["13", "Organizations helped"],
+        ["1000 +", "MYR funded"]
       ]
     };
+  },
+  methods: {
+    onSearchLocation: function() {
+      this.$router.push({
+        name: "Search",
+        params: { state: this.selectedState, city: this.selectedCity }
+      });
+    }
   }
 };
 </script>

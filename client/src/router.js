@@ -7,7 +7,7 @@ const router = new VueRouter({
   base: __dirname,
   routes: [
     { path: '/', name: 'Index', component: Index },
-    { path: '/search', name: 'Search', component: Search }
+    { path: '/search', name: 'Search', component: Search, props: true }
     // { path: '*', name: 'PageNotFound', component: PageNotFound }
   ],
   scrollBehavior() {
