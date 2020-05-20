@@ -13,10 +13,10 @@
           href="https://www.google.com/maps/search/?api=1&query=Saradise%20Kuching%2C%20Jalan%20Stutong%2C%20Kuching%2C%20Sarawak"
           target="_blank"
         >
-          <v-btn color="indigo" id="direction-btn" text>Get Direction</v-btn>
+          <v-btn color="indigo" class="action-btn" text>Get Direction</v-btn>
         </a>
         <a style="text-decoration: none;" href="https://wa.me/60123456789" target="_blank">
-          <v-btn color="indigo" class="pl-1" text>Contact</v-btn>
+          <v-btn color="indigo" class="ml-1" text>Contact</v-btn>
         </a>
 
         <v-spacer></v-spacer>
@@ -50,8 +50,8 @@
 </template>
 
 <style scoped>
-#direction-btn {
-  padding-left: 4%;
+.action-btn {
+  padding-left: 4% !important;
 }
 </style>
 
