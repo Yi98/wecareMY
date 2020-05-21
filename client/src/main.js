@@ -14,7 +14,7 @@ Vue.mixin({
     return {
       get domain() {
         // return 'http://localhost:3000';
-        return 'http://www.wecaremy.org';
+        return 'https://wecaremy.org';
       }
     }
   }
