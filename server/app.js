@@ -51,6 +51,11 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
 });
 
+// redirect all paths to index.html;
+app.use('*', (req, res) => {
+  res.redirect('/');
+});
+
 // listen to port
 app.listen((process.env.PORT || port), _ => {
   console.log('Server running on ' + port);
