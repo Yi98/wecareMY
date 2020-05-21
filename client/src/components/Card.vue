@@ -68,7 +68,7 @@ export default {
       return `https://wa.me/6${this.center.phoneNo}`;
     },
     formattedAdrress: function() {
-      return this.center.address.replace(/\s/g, "%20").replace(/,/g, "%2C");
+      return `https://www.google.com/maps/search/?api=1&query=${this.center.address.replace(/\s/g, "%20").replace(/,/g, "%2C")}`;
     }
   }
 };

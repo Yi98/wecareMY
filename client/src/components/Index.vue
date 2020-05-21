@@ -36,11 +36,18 @@
                 label="State"
                 v-model="selectedState"
                 required
+                @change="onSelectState()"
               ></v-select>
             </v-col>
 
             <v-col cols="12" md="5" class="text-center">
-              <v-select :items="cities" label="City" v-model="selectedCity" required></v-select>
+              <v-select
+                :items="cities"
+                label="City"
+                v-model="selectedCity"
+                required
+                @change="onSelectCity()"
+              ></v-select>
             </v-col>
 
             <v-col cols="12" md="2" class="text-center">
@@ -349,10 +356,13 @@ h2 {
 <script>
 export default {
   name: "Index",
+  mounted: function() {
+    console.log(this.$store.state.currentState);
+  },
   data() {
     return {
-      selectedState: null,
-      selectedCity: null,
+      selectedState: this.$store.state.currentState,
+      selectedCity: this.$store.state.currentCity,
       states: [
         "All states",
         "Johor",
@@ -438,6 +448,16 @@ export default {
       this.$router.push({
         name: "Search",
         params: { state: this.selectedState, city: this.selectedCity }
+      });
+    },
+    onSelectState: function() {
+      this.$store.commit("changeState", {
+        newState: this.selectedState
+      });
+    },
+    onSelectCity: function() {
+      this.$store.commit("changeCity", {
+        newCity: this.selectedCity
       });
     }
   }
