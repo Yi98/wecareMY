@@ -317,7 +317,7 @@ h2 {
   }
 
   #hero-row {
-    padding-top: 18%;
+    padding-top: 22%;
   }
 
   #index-form {
@@ -325,7 +325,7 @@ h2 {
     width: 95%;
     top: 8%;
     left: 50%;
-    transform: translate(-50%, -65%);
+    transform: translate(-50%, -60%);
     padding: 0 5px;
     background-color: rgb(255, 255, 255);
     box-shadow: none;
