@@ -47,8 +47,13 @@ app.use(express.json())
 app.use('/api/centers', centerApi);
 
 // server index.html
-app.use('*', (req, res) => {
+app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html');
+});
+
+// redirect all paths to index.html;
+app.use('*', (req, res) => {
+  res.redirect('/');
 });
 
 // listen to port
