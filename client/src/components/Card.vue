@@ -1,21 +1,21 @@
 <template>
   <v-col md="4">
     <v-card class="mx-auto mb-12">
-      <v-img :src="host.image" height="200px"></v-img>
+      <v-img :src="center.photo" height="200px"></v-img>
 
-      <v-card-title>{{ host.name }}</v-card-title>
+      <v-card-title>{{ center.name }}</v-card-title>
 
-      <v-card-subtitle>{{ host.address }} (1.4km away)</v-card-subtitle>
+      <v-card-subtitle>{{ center.address }} (1.4km away)</v-card-subtitle>
 
       <v-card-actions>
         <a
           style="text-decoration: none;"
-          href="https://www.google.com/maps/search/?api=1&query=Saradise%20Kuching%2C%20Jalan%20Stutong%2C%20Kuching%2C%20Sarawak"
+          :href="formattedAdrress"
           target="_blank"
         >
           <v-btn color="indigo" class="action-btn" text>Get Direction</v-btn>
         </a>
-        <a style="text-decoration: none;" href="https://wa.me/60123456789" target="_blank">
+        <a style="text-decoration: none;" :href="whatsappNo" target="_blank">
           <v-btn color="indigo" class="ml-1" text>Contact</v-btn>
         </a>
 
@@ -58,10 +58,18 @@
 <script>
 export default {
   data: () => ({
-    show: false
+    show: false,
   }),
   props: {
-    host: Object
+    center: Object
+  },
+  computed: {
+    whatsappNo: function() {
+      return `https://wa.me/6${this.center.phoneNo}`;
+    },
+    formattedAdrress: function() {
+      return this.center.address.replace(/\s/g, "%20").replace(/,/g, "%2C");
+    }
   }
 };
 </script>

@@ -19,7 +19,7 @@ exports.getCenters = (req, res) => {
 };
 
 exports.getCenter = (req, res) => {
-  Center.findById({ _id: req.params.id })
+  Center.findById({ _id: req.params.centerId })
     .exec()
     .then(center => {
       if (!center) {
@@ -44,12 +44,20 @@ exports.postCenter = (req, res) => {
           existing: center
         });
       }
+
+      const newCenter = new Center({
+        name: req.body.name,
+        address: req.body.address,
+        phoneNo: req.body.phoneNo,
+        photo: req.body.photo
+      });
+
       return newCenter.save();
     })
     .then(center => {
       res.status(201).json({
         message: 'New center was created',
-        newCenter: center
+        addedCenter: center
       })
     })
     .catch(err => {

@@ -56,7 +56,7 @@
     </v-row>
 
     <v-row>
-      <Card v-for="(host, i) in hosts" v-bind:key="i" v-bind:host="host" />
+      <Card v-for="(center, i) in centers" v-bind:key="i" v-bind:center="center" />
     </v-row>
   </v-container>
 </template>
@@ -79,11 +79,26 @@
 </style>
 
 <script>
+import axios from "axios";
 import Card from "./Card";
 
 export default {
   components: {
     Card
+  },
+  mounted: function() {
+    axios
+      .get(`${this.domain}/api/centers`)
+      .then(response => {
+        this.centers = response.data.centers;
+        console.log(this.centers);
+      })
+      .catch(error => {
+        console.log(error);
+      })
+      .finally(function() {
+        // always executed
+      });
   },
   created: function() {
     this.selectedState = this.$route.params.state;
@@ -93,6 +108,7 @@ export default {
     return {
       selectedState: null,
       selectedCity: null,
+      centers: [],
       menu: false,
       states: [
         "All",
@@ -141,7 +157,7 @@ export default {
         {
           name: "快乐成长之家",
           address:
-            " 25 Jln Limau Besar Taman Bangsar, 59000 Wilayah Persekutuan, Kuala Lumpur.",
+            "25 Jln Limau Besar Taman Bangsar, 59000 Wilayah Persekutuan, Kuala Lumpur.",
           image:
             "https://images.unsplash.com/photo-1475855581690-80accde3ae2b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80",
           contact: "012-3456789",
@@ -163,7 +179,7 @@ export default {
             "https://images.unsplash.com/photo-1449844908441-8829872d2607?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80",
 
           address:
-            "Pusat Professional, Jalan Syed Mohd Mufti, 93100 Tulur Hitam, Johor",
+            "Pusat Professional, Jalan Syed Mohd Mufti, 93100 Tulur Hitam, Johor.",
           contact: "012-3456789",
           items: ["Shirts", "2 bags of rice", "Potatoes", "Carrots"]
         },
@@ -172,8 +188,7 @@ export default {
           image:
             "https://images.unsplash.com/photo-1568092775154-7fa176a29c0f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1867&q=80",
 
-          address:
-            "47 Hla Perusahaan Kledang Utara, 31452 Ipoh, Perak.",
+          address: "47 Hla Perusahaan Kledang Utara, 31452 Ipoh, Perak.",
           contact: "012-3456789",
           items: ["Shirts", "2 bags of rice", "Potatoes", "Carrots"]
         },

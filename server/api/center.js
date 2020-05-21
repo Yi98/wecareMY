@@ -4,7 +4,6 @@ const router = express.Router();
 const CenterController = require('../controller/center');
 
 
-
 router.get('/', CenterController.getCenters);
 
 router.get('/:centerId', CenterController.getCenter);
