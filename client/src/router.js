@@ -3,7 +3,6 @@ import Index from './components/Index';
 import Search from './components/Search';
 
 const router = new VueRouter({
-  mode: 'history',
   base: __dirname,
   routes: [
     { path: '/', name: 'Index', component: Index },
