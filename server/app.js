@@ -38,7 +38,7 @@ var corsOptions = {
 }
 
 // project middleware
-app.use(cors(corsOptions));
+app.use(cors());
 app.use(express.static(path.join(__dirname, '/dist')));
 app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
