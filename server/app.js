@@ -47,7 +47,7 @@ app.use(express.json())
 app.use('/api/centers', centerApi);
 
 // server index.html
-app.get('/', (req, res) => {
+app.use('*', (req, res) => {
   res.sendFile(__dirname + '/index.html');
 });
 
