@@ -402,44 +402,44 @@ export default {
             "https://images.unsplash.com/photo-1531498001693-66235ecacf14?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1867&q=80",
           title: "Connect people in needs and people who can help",
           text:
-            "Phasellus lorem enim, luctus ut velit eget, convallis egestas eros. Sed ornare ligula eget tortor tempor, quis porta tellus dictum."
+            "Nam ut leo ipsum. Maecenas pretium aliquam feugiat. Aenean vel tempor est, vitae tincidunt risus. Sed sodales vestibulum nibh."
         },
         {
           src:
             "https://images.unsplash.com/photo-1583321500900-82807e458f3c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80",
-          title: "Bring the most out of the community",
+          title: "Make orphanages and old folks' home fully community driven",
           text:
             "Nam ut leo ipsum. Maecenas pretium aliquam feugiat. Aenean vel tempor est, vitae tincidunt risus. Sed sodales vestibulum nibh."
         },
         {
           src:
             "https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
-          title: "Make the world a better place with care and love",
+          title: "Avoid abuse of funding and donation",
           text:
-            "Vestibulum in dictum velit, in rhoncus nibh. Maecenas neque libero, interdum a dignissim in, aliquet vitae lectus. Phasellus lorem enim, luctus ut velit eget."
+            "Nam ut leo ipsum. Maecenas pretium aliquam feugiat. Aenean vel tempor est, vitae tincidunt risus. Sed sodales vestibulum nibh."
         }
       ],
       features: [
         {
           title: "Request",
           text:
-            "People in charged of orphanages or old fold's homes request their daily needs on the platform. Community is able to view what items they need."
+            "People in charged of orphanages or old folk's homes request their daily needs on the platform. Community is able to view the items that they need."
         },
         {
           title: "Contact",
           text:
-            "People who are interested to help can contact the people in charged to further discuss the details such as date and time with phone number provided on the platform via What's App."
+            "People who are interested to help can contact the orphanages and old folks' home to further discuss the details such as date and time with phone number provided."
         },
         {
           title: "Resolve",
           text:
-            "The items are sent to the destination on promised date and time."
+            "The items are sent to the destination on promised date and time. Whole process is carried out among sender and receiver, no middleman in between."
         }
       ],
       stats: [
         ["34", "Helping hands"],
         ["13", "Organizations helped"],
-        ["1000 +", "MYR funded"]
+        ["570", "requests fulfilled"]
       ]
     };
   },
