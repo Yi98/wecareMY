@@ -9,6 +9,7 @@ const port = 3000;
 
 // internal import
 const centerApi = require('./api/center');
+const userApi = require('./api/user');
 
 // read environment variables
 const envResult = dotenv.config();
@@ -45,10 +46,11 @@ app.use(express.json())
 
 // api middleware
 app.use('/api/centers', centerApi);
+app.use('/api/users', userApi);
 
 // redirect all paths to index.html;
 app.use('*', (req, res) => {
-  res.sendFile(__dirname + '/index.html');
+  res.sendFile(__dirname + '/dist/index.html');
 });
 
 // listen to port

@@ -2,7 +2,7 @@
   <v-container class="mt-12">
     <v-row>
       <v-col cols="10">
-        <h1 id="location-title" class="pb-3">Location: {{selectedState}}, {{selectedCity}}</h1>
+        <h1 id="location-title" class="pb-3">Location: {{selectedCity}}, {{selectedState}}</h1>
       </v-col>
       <v-col cols="2" class="text-right">
         <v-menu v-model="menu" :close-on-content-click="false" :nudge-width="300" offset-y left>
@@ -112,37 +112,12 @@ export default {
       centers: [],
       menu: false,
       states: [
-        "All",
-        "Johor",
-        "Kedah",
-        "Kelantan",
-        "Perak",
+        // "All states",
         "Selangor",
-        "Malacca",
-        "Negeri Sembilan",
-        "Pahang",
-        "Perlis",
-        "Penang",
-        "Terengganu",
-        "Sabah",
-        "Sarawak"
       ],
       cities: [
-        "All",
-        "Ayer Baloi",
-        "Ayer Hitam",
-        "Bandar Penawar",
-        "Bandar Tenggara",
-        "Batu Anam",
-        "Batu Pahat",
-        "Bekok",
-        "Benut",
-        "Bukit Gambir",
-        "Bukit Pasir",
-        "Chaah",
-        "Endau",
-        "Gelang Patah",
-        "Gerisek"
+        // "All cities",
+        "Cheras"
       ],
       parties: ["Orphanage", "Old folk's home"]
     };

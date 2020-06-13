@@ -26,7 +26,7 @@
         </v-row>
       </section>
 
-      <v-form id="index-form">
+      <v-form id="index-form" ref="indexForm">
         <v-container>
           <h1 class="pt-4" id="hero2-text">Find orphanages / old folks' homes around you</h1>
           <v-row>
@@ -35,6 +35,7 @@
                 :items="states"
                 label="State"
                 v-model="selectedState"
+                :rules="[v => !!v || 'State is required']"
                 required
                 @change="onSelectState()"
               ></v-select>
@@ -45,6 +46,7 @@
                 :items="cities"
                 label="City"
                 v-model="selectedCity"
+                :rules="[v => !!v || 'City is required']"
                 required
                 @change="onSelectCity()"
               ></v-select>
@@ -74,7 +76,7 @@
           <v-responsive
             class="mx-auto title font-weight-light mb-11"
             max-width="720"
-          >Establish on year 2020, WecareMY is a Non-Profit Organisation(NPO) in Malaysia that aims to connect people who are in needs to people who are willing to help. We provide a platform to connect both parties. We care about you!</v-responsive>
+          >Established on year 2020, WecareMY is a Non-Profit Organisation(NPO) in Malaysia that aims to connect people who are in needs to people who are willing to help. We provide a platform to connect both parties. We care about you!</v-responsive>
         </v-container>
 
         <div class="about-container-btn"></div>
@@ -356,45 +358,17 @@ h2 {
 <script>
 export default {
   name: "Index",
-  mounted: function() {
-    console.log(this.$store.state.currentState);
-  },
   data() {
     return {
       selectedState: this.$store.state.currentState,
       selectedCity: this.$store.state.currentCity,
       states: [
-        "All states",
-        "Johor",
-        "Kedah",
-        "Kelantan",
-        "Perak",
+        // "All states",
         "Selangor",
-        "Malacca",
-        "Negeri Sembilan",
-        "Pahang",
-        "Perlis",
-        "Penang",
-        "Terengganu",
-        "Sabah",
-        "Sarawak"
       ],
       cities: [
-        "All cities",
-        "Ayer Baloi",
-        "Ayer Hitam",
-        "Bandar Penawar",
-        "Bandar Tenggara",
-        "Batu Anam",
-        "Batu Pahat",
-        "Bekok",
-        "Benut",
-        "Bukit Gambir",
-        "Bukit Pasir",
-        "Chaah",
-        "Endau",
-        "Gelang Patah",
-        "Gerisek"
+        // "All cities",
+        "Cheras",
       ],
       articles: [
         {
@@ -437,18 +411,20 @@ export default {
         }
       ],
       stats: [
-        ["34", "Helping hands"],
-        ["13", "Organizations helped"],
-        ["570", "requests fulfilled"]
+        ["0", "Helping hands"],
+        ["1", "Organizations helped"],
+        ["0", "requests fulfilled"]
       ]
     };
   },
   methods: {
     onSearchLocation: function() {
-      this.$router.push({
-        name: "Search",
-        params: { state: this.selectedState, city: this.selectedCity }
-      });
+      if (this.$refs.indexForm.validate()) {
+        this.$router.push({
+          name: "Search",
+          params: { state: this.selectedState, city: this.selectedCity }
+        });
+      }
     },
     onSelectState: function() {
       this.$store.commit("changeState", {

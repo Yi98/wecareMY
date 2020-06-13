@@ -4,6 +4,7 @@ import Search from './components/Search';
 
 const router = new VueRouter({
   base: __dirname,
+  mode: 'history',
   routes: [
     { path: '/', name: 'Index', component: Index },
     { path: '/search', name: 'Search', component: Search, props: true }
